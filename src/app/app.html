@@ -1,0 +1,45 @@
+<ion-menu [content]="charList">
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list id="sidenav">
+        <ion-list-header>
+          <ion-icon name="ios-people" item-left></ion-icon>
+          Character list
+        </ion-list-header>
+    <!-- other menu items will go here -->
+      <ion-item *ngIf="tnbActive" (tap)="tnbMenuItemHandler()">TheNoobBot</ion-item>
+      <ion-item-group no-lines submenu [class.visible]="showTnbSubmenu">
+        <ion-item [class.activePageHighlight]='checkActive(name, "TheNoobBot")' menuClose *ngFor="let name of tnbChars" (tap)='setChar(name, "TheNoobBot")' submenu-item>{{name}}</ion-item>
+      </ion-item-group>
+      <ion-item *ngIf="hbActive" (tap)="hbMenuItemHandler()">HonorBuddy</ion-item>
+      <ion-item-group submenu [class.visible]="showHbSubmenu">
+        <ion-item [class.activePageHighlight]='checkActive(name, "HonorBuddy")' menuClose *ngFor="let name of hbChars" (tap)='setChar(name, "HonorBuddy")' submenu-item>{{name}}</ion-item>
+      </ion-item-group>
+      <ion-item *ngIf="rbActive" (tap)="rbMenuItemHandler()">RebornBuddy</ion-item>
+      <ion-item-group submenu [class.visible]="showRbSubmenu">
+        <ion-item [class.activePageHighlight]='checkActive(name, "RebornBuddy")' menuClose *ngFor="let name of rbChars" (tap)='setChar(name, "RebornBuddy")' submenu-item>{{name}}</ion-item>
+      </ion-item-group>
+
+    <!-- other menu items will go here -->
+    </ion-list>
+  </ion-content>
+</ion-menu>
+
+<!--<ion-menu [content]="charList">
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-title>Menu</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-content>
+    <ion-list>
+        <li *ngFor="let d of bots">{{d}}</li>
+    </ion-list>
+  </ion-content>
+</ion-menu>-->
+
+<ion-nav #charList [root]="rootPage" swipeBackEnabled="false"></ion-nav>

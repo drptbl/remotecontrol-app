@@ -1,0 +1,31 @@
+{
+  "sessions": [
+    {
+      "id": "1f4c3a6e-884b-4ed2-ad66-3709e7281098",
+      "tabLayout": {
+        "type": "stack",
+        "width": 100,
+        "height": 100,
+        "tabs": [
+          {
+            "id": "0b99fbb3-26ac-47dc-a014-a4df9f855d4e",
+            "relativeUrl": "file://./src/app/app.module.ts",
+            "additionalData": null
+          },
+          {
+            "id": "98e0a1ec-a6e4-47a5-8624-12916b814e5e",
+            "relativeUrl": "file://./src/pages/check-subs/check-subs.ts",
+            "additionalData": null
+          }
+        ],
+        "subItems": [],
+        "activeItemIndex": 0
+      },
+      "lastUsed": 1490007172343,
+      "selectedTabId": "98e0a1ec-a6e4-47a5-8624-12916b814e5e",
+      "fileTreeExpanded": true,
+      "fileTreeWidth": 182
+    }
+  ],
+  "relativePathToTsconfig": "./tsconfig.json"
+}

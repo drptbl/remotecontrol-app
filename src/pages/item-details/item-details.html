@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-navbar>
+    <button menuToggle *ngIf="!selectedItem">
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Details</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <h3 text-center *ngIf="selectedItem">
+    <b>{{selectedItem.title}}</b>
+    <!--icon can be placed there-->
+    <!--<ion-icon [name]="selectedItem.icon"></ion-icon>-->
+  </h3>
+  <h4 text-center *ngIf="selectedItem">
+    {{selectedItem.note}}
+  </h4>
+
+          <ul class="card-list">
+            <ion-item no-lines>
+                <div item-left>Character</div>
+                <div item-right>{{selectedItem.char}}</div>
+            </ion-item>
+            <ion-item no-lines>
+                <div item-left>Bot</div>
+                <div item-right>{{selectedItem.bot}}</div>
+            </ion-item>
+            <ion-item no-lines>
+                <div item-left>Sent at</div>
+                <div item-right>{{selectedItem.sentAt}}</div>
+            </ion-item>
+            <ion-item no-lines>
+                <div item-left>Read on</div>
+                <div item-right>{{selectedItem.time}}</div>
+            </ion-item>
+        </ul>
+
+  <!--<h4 text-center *ngIf="selectedItem">
+    Character name: {{selectedItem.char}}
+  </h4>
+  <h4 text-center *ngIf="selectedItem">
+    Bot: {{selectedItem.bot}}
+  </h4>
+  <h4 text-center *ngIf="selectedItem">
+    Sent at: {{selectedItem.sentAt}}
+  </h4>
+  <h4 text-center *ngIf="selectedItem">
+    Read on: {{selectedItem.time}}
+  </h4>-->
+</ion-content>

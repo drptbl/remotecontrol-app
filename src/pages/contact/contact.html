@@ -1,0 +1,38 @@
+<ion-header class="title-centered">
+    <ion-toolbar color="primary">
+        <ion-title>
+          Settings
+        </ion-title>
+        <ion-buttons right>
+            <button ion-button icon-only (click)="userOptions()">
+                <ion-icon name="ios-contact"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content padding>
+          <ul class="card-list">
+            <ion-item no-lines>
+                <div item-left>App stage</div>
+                <div item-right>Preview (Alpha)</div>
+            </ion-item>
+            <ion-item no-lines>
+                <div item-left>App version</div>
+                <div item-right>0.0.1</div>
+            </ion-item>
+        </ul>
+        <!--<ion-item text-center no-lines> <button centre ion-button block (click)="openPrivacyPolicy()">Privacy Policy</button></ion-item>-->
+
+        <div class="note">
+            List of currently known issues:<br>
+            <a href="#" onclick="window.open('https://github.com/drptbl/rbcs-issues/issues', '_blank'); return false;">
+                https://github.com/drptbl/rbcs-issues/issues
+            </a><br>
+            Your issue is missing? No worries. <br>
+            Add it yourself or use feedback form.
+        </div>
+        <div class="note">
+          <p>By using this app, you agree to our <a href="#" (click)="openPrivacyPolicy()">Privacy Policy</a>.</p>
+        </div>
+
+</ion-content>

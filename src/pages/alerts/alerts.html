@@ -1,0 +1,37 @@
+<ion-header class="title-centered">
+    <ion-toolbar color="primary">
+        <ion-title>
+          Alerts
+        </ion-title>
+        <ion-buttons right>
+            <button ion-button icon-only (click)="userOptions()">
+                <ion-icon name="ios-contact"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+<ion-content padding>
+        <ul *ngIf="!items" class="card-list">
+            <ion-item no-lines>
+                <div text-center>No alerts yet</div>
+            </ion-item>
+        </ul>
+  <ion-list>
+    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
+      <!--there is an icon which can be shown for each notification-->
+      <!--<ion-icon name="{{item.icon}}" item-left></ion-icon>-->
+      {{item.title}} - {{item.char}}
+      <!--there is an description which can be shown for each notification-->
+      <div class="item-note" item-right>
+        {{item.sentAt}}
+      </div>
+    </button>
+  </ion-list>
+  <!--no idea what this div is for-->
+    <!--<div *ngIf="selectedItem" padding>
+    You navigated here from <b>{{selectedItem.title}}</b>
+  </div>-->
+        <div class="note">
+          <p>Use plugin provided for your bot to configure notifications.</p>
+        </div>
+</ion-content>

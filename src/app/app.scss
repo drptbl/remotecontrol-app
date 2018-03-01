@@ -1,0 +1,333 @@
+// http://ionicframework.com/docs/v2/theming/
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+$card-radius: 6px;
+$card-background: #fff;
+$card-margin-topbottom: 1.5em;
+// note hint text
+.note {
+    margin: 0 0 $content-margin 0;
+    color: color($colors, dark, base);
+    font-size: 13px;
+    line-height: 1.5;
+    a {
+        color: color($colors, brand-dark, base);
+    }
+}
+
+// error text
+.error {
+    color: color($colors, danger, base);
+    margin: 0 0 $content-margin 0;
+}
+
+// card container
+.card {
+    background: $card-background;
+    margin: 0 0 $card-margin-topbottom 0;
+    border-radius: 6px;
+    overflow: hidden;
+    .card-inner {
+        padding: $content-padding;
+    }
+}
+
+// card list container
+.card-list {
+    background: $card-background;
+    margin: $card-margin-topbottom 0;
+    padding: 0;
+    border-radius: 6px;
+    overflow: hidden;
+    >ion-item {
+        background: transparent;
+        &+ion-item {
+            border-top: 1px solid color($colors, light, base) !important;
+        }
+        >[item-left] {
+            color: color($colors, dark, base);
+        }
+        >[item-right] {
+            color: color($colors, black, base);
+        }
+        ion-label {
+            color: color($colors, dark, base);
+        }
+    }
+}
+
+// Custom icons
+// Overriding the ion-icon behavior
+// All custom icons will start with "mypal-" prefix
+ion-icon {
+    &[class*="mypal-"] {
+        // Instead of using the font-based icons
+        // We're applying SVG masks
+        mask-size: contain;
+        mask-position: 50% 50%;
+        mask-repeat: no-repeat;
+        background: currentColor;
+        width: 1em;
+        height: 1em;
+    }
+    // custom icons
+    &[class*="mypal-tab-balance"] {
+        mask-image: url(../assets/img/tab-balance.svg);
+    }
+    &[class*="mypal-tab-history"] {
+        mask-image: url(../assets/img/tab-history.svg);
+    }
+    &[class*="mypal-money"] {
+        mask-image: url(../assets/img/money.svg);
+    }
+    &[class*="mypal-pass"] {
+        mask-image: url(../assets/img/pass.svg);
+    }
+    &[class*="mypal-train"] {
+        mask-image: url(../assets/img/train.svg);
+    }
+    &[class*="mypal-bus"] {
+        mask-image: url(../assets/img/bus.svg);
+    }
+    &[class*="mypal-tram"] {
+        mask-image: url(../assets/img/tram.svg);
+    }
+    &[class*="mypal-vline"] {
+        mask-image: url(../assets/img/vline.svg);
+    }
+    &[class*="mypal-cards"] {
+        mask-image: url(../assets/img/cards.svg);
+    }
+}
+
+// restyling the app tabbar
+ion-tabs {
+    .tabbar {
+        border-top: none !important;
+        background: white;
+        box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.02);
+        // restyling icon
+        $tab-icon-size: 26px;
+        ion-icon {
+            min-width: $tab-icon-size !important;
+            width: $tab-icon-size !important;
+            height: $tab-icon-size !important;
+            margin: 0 !important; // removed tab text, don't need any margins
+        }
+    }
+}
+
+// restyling side menu
+ion-menu {
+    .menu-inner {
+        background: #86898e !important;
+    }
+}
+
+// loading spinner
+.loading {
+    text-align: center;
+    padding: 1em;
+    .text {
+        margin-top: 0.5em;
+    }
+}
+
+// empty state
+.empty {
+    text-align: center;
+    padding: 1em;
+    opacity: 0.3;
+    ion-icon {
+        font-size: 6em;
+        opacity: 0.5;
+    }
+    .text {
+        margin-top: 0.7em;
+        font-size: 1.4em;
+    }
+}
+
+// fullscreen container & loading
+.container-full {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    display: flex;
+    align-items: center;
+    .loading {
+        flex: 1 0;
+    }
+}
+
+// input override
+ion-input {
+    input {
+        color: color($colors, brand-dark, base);
+        &::placeholder {
+            color: #c4c4c4;
+        }
+        &.ng-invalid {
+            color: color($colors, danger, base);
+        }
+    }
+}
+
+// select override
+ion-select {
+    .select-text {
+        color: color($colors, brand-dark, base);
+    }
+}
+
+// disable Android item input validation bottom border
+ion-item {
+    &.item-md .item-inner {
+        border-bottom: none !important;
+        box-shadow: none !important;
+    }
+}
+
+// hack for iOS alert allows you to scroll backdrop
+// https://github.com/driftyco/ionic/issues/6980
+ion-app.disable-scroll {
+    ion-content>.scroll-content {
+        overflow: hidden;
+    }
+}
+
+//  Centering title
+// --------------------------------------------------
+// a fix for centering the title on all the platforms
+// try this:
+// ion-header {
+//   .button-md {
+//     box-shadow: none;
+//   }
+//   .toolbar-title {
+//     display: -webkit-flex;
+//     display: flex;
+//     -webkit-flex-direction: row;
+//     flex-direction: row;
+//     -webkit-align-items: center;
+//     align-items: center;
+//     -webkit-justify-content: center;
+//     justify-content: center;
+//   }
+// }
+// or this:
+// ion-header {
+//   .toolbar-content {
+//     position: absolute;  // take a flexbox item out of the flow
+//     width: 100%;         // take all the space, including that of the buttons on the left and right side
+//     z-index: -1;         // go under the buttons
+//   }
+//   .toolbar-title {
+//     text-align: center;  // now center the title
+//   }
+// }
+// or this:
+.title-centered .toolbar-content {
+    order: 4;
+    // Make sure the toolbar buttons are above the title or they can't be tapped!
+    z-index: -1;
+}
+
+.title-centered ion-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0 50px 1px;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.title-centered .toolbar-title {
+    text-align: center;
+    padding: 0;
+}
+
+// for side nav
+ion-menu [submenu] {
+    display: block;
+    padding-left: 25px;
+    overflow: hidden;
+    max-height: 0;
+    transform: scaleY(0);
+    transform-origin: 50% 0;
+    transition: transform .1s linear, max-height 0s .1s linear;
+    &.visible {
+        max-height: 9999px;
+        transform: scaleY(1);
+        transition: transform .1s linear, max-height 0s linear;
+    }
+}
+
+.activePageHighlight {
+    background-color: #dadada !important;
+}
+
+// toast styles
+.toast-success {
+    top: -20px;
+    .toast-wrapper {
+        background-color: rgba(0, 0, 0, 0.85);
+        border-radius: 20px;
+        width: 90%;
+    }
+    .toast-message {
+        color: color($colors, light);
+    }
+    .toast-button {
+        color: color($colors, dark);
+    }
+}
+
+.toast-warning {
+    top: -20px;
+    .toast-wrapper {
+        background-color: rgba(0, 0, 0, 0.85);
+        border-radius: 20px;
+        width: 90%;
+    }
+    .toast-message {
+        color: color($colors, light);
+    }
+    .toast-button {
+        color: color($colors, dark);
+    }
+}
+
+.toast-error {
+    top: -20px;
+    .toast-wrapper {
+        background-color: rgba(0, 0, 0, 0.85);
+        border-radius: 20px;
+        width: 90%;
+    }
+    .toast-message {
+        color: color($colors, light);
+    }
+    .toast-button {
+        color: color($colors, dark);
+    }
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}

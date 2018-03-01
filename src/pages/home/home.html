@@ -1,0 +1,85 @@
+<ion-header class="title-centered">
+    <!--toolbar or navbar?-->
+    <ion-toolbar color="primary">
+        <ion-buttons left>
+            <button ion-button icon-only menuToggle>
+                <ion-icon name="md-swap"></ion-icon>
+            </button>
+        </ion-buttons>
+        <ion-title>
+          Control Center
+        </ion-title>
+        <ion-buttons right>
+            <button ion-button icon-only (click)="userOptions()">
+                <ion-icon name="ios-contact"></ion-icon>
+            </button>
+        </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <!--<ion-refresher (ionRefresh)="doRefresh($event)">
+        <ion-refresher-content>
+        </ion-refresher-content>
+    </ion-refresher>
+
+
+
+        <ul class="card-list">
+            <ion-item no-lines>
+                <div item-left>Number</div>
+                <div item-right>a</div>
+            </ion-item>
+
+            <ion-item no-lines>
+                <div item-left>Name</div>
+                <div item-right>a</div>
+            </ion-item>
+
+            <ion-item no-lines>
+                <div item-left>Type</div>
+                <div item-right>a</div>
+            </ion-item>
+        </ul>-->
+<ion-card>
+  <ion-card-header>
+    <p>Bot: {{botName}}</p>
+    <h2>Character: {{charName}}</h2>
+  </ion-card-header>
+  <ion-list>
+    <ion-item text-wrap *ngFor="let item of charData | objectValues">
+      <p>{{ item.key }}: {{item.value}}</p>
+    </ion-item>
+  </ion-list>
+</ion-card>
+
+        <!--<div class="note">
+            <p>Data shown is from: {{ charTs }}.</p>
+        </div>-->
+<!--<ul *ngFor="let item of charData | objectValues">
+   <li *ngFor="let value of item">
+     {{ value }}
+   </li>
+ </ul>-->
+<!--
+<ul *ngFor="let item of charData | objectValues">
+{{ item.key }}: {{item.value}}
+ </ul>-->
+
+</ion-content>
+
+
+<ion-footer>
+  <ion-toolbar>
+      <p text-center>Last updated: {{ charTs }}</p>
+  </ion-toolbar>
+</ion-footer>
+
+<!--move to settings-->
+<!--<ion-footer>
+            <ion-item no-lines (click)="addExpiryReminder()">
+                <div item-left>Expires in</div>
+                <div item-right>29 days</div>
+                <ion-icon item-right name="md-alarm" color="dark" class="reminder"></ion-icon>
+            </ion-item>
+</ion-footer>-->

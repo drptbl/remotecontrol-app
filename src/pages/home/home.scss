@@ -1,0 +1,88 @@
+page-home {
+    ion-content {
+        .scroll-content {
+            background: $background-color; // override so pull to refresh doesn't overlap page
+            border-top: none !important; // override so pull to refresh has no border
+        }
+    }
+    .replaced {
+        background: color($colors, danger, base);
+        color: white;
+        text-align: center;
+    }
+    .card.balance {
+        position: relative;
+        .balance-icon {
+            position: absolute;
+            top: $content-padding;
+            right: $content-padding;
+            ion-icon {
+                font-size: 8em;
+                background: linear-gradient(#eef0f4, #f3f4f7);
+            }
+        }
+        .card-inner {
+            flex: 1 0;
+            position: relative;
+            .title {
+                color: color($colors, dark, base);
+                font-size: 13px;
+                margin: 0;
+            }
+            .balance-hero {
+                font-size: 2.3em;
+                font-weight: 600;
+                margin: 0.2em 0;
+                line-height: 1.2;
+                &.inactive {
+                    color: color($colors, light-blue, base);
+                }
+            }
+            .info {
+                color: color($colors, dark, base);
+                line-height: 1.5;
+                >div {
+                    ion-icon {
+                        margin-right: 0.3em;
+                    }
+                    &+div {
+                        margin-top: 0.5em;
+                    }
+                }
+                .autotopup {
+                    color: #5ec700;
+                }
+            }
+            button {
+                margin: 0.7em 0 0 0;
+            }
+        }
+        &.pass {
+            .buttons {
+                display: flex;
+                button.topup {
+                    flex: 1 0;
+                }
+                button.reminder {
+                    margin-left: 0.5em;
+                    ion-icon {
+                        font-size: 1.5em;
+                        padding: 0 0.7em;
+                    }
+                }
+            }
+        }
+    }
+    .card-list {
+        div[item-right] {
+            text-align: right; // tweak so that line-wrapped words are right-aligned
+        }
+        ion-icon.reminder {
+            font-size: 1.3em;
+            line-height: 1.3em;
+        }
+    }
+    .loading {
+        padding: 3em 0 !important;
+    }
+}
